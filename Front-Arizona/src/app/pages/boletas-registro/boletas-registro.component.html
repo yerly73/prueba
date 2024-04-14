@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta de Pasajes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f4f5f7;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+      color: #495057;
+      background-color: #fff;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
+    .card {
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+    .card-header {
+      background-color: #ffffff;
+      border-bottom: none;
+    }
+    .card-body {
+      background-color: #ffffff;
+    }
+    .form-control {
+      border-radius: 0.25rem;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .btn-primary {
+      background-color: #5b5ea6;
+      border: none;
+      margin-top: 10px;
+    }
+    .btn-outline-primary {
+      border-color: #5b5ea6;
+      color: #5b5ea6;
+    }
+    .btn-outline-primary:hover {
+      background-color: #5b5ea6;
+      color: #ffffff;
+    }
+    .seating-chart {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .seat {
+      width: 40px;
+      height: 40px;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px; /* Esquinas redondeadas para los asientos */
+    }
+  
+    .seat:hover {
+      background-color: #e4e4e4; /* Color de hover */
+    }
+  
+    .seat.reserved {
+      background-color: #5b5ea6; /* Color para reservado */
+    }
+  
+    .seat.sold {
+      background-color: #ff6161; /* Color para vendido */
+    }
+  
+    .legend {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 20px;
+    }
+  
+    .legend .seat {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin: 3px;
+    }
+  
+    .legend .text {
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+    
+    .seat.spacer {
+      background-color: transparent; /* Asientos invisibles para el espaciador */
+      border: none;
+    }
+    .nav-link.active {
+      font-weight: bold;
+      color: #495057;
+      background-color: #fff;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
+    .nav-link {
+      color: #007bff;
+      background-color: transparent;
+      border: none;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <div class="container mt-4">
+    <!-- Navegación de pestañas -->
+    <ul class="nav nav-tabs" id="nav-tab">
+      <li class="nav-item">
+        <a class="nav-link active" href="/page/registroBoletas" id="venta-tab">Venta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/page/reservaPasaje" id="reserva-tab">Reserva</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/page/listaPasajeros" id="pasajeros-tab">Pasajeros</a>
+      </li>
+    </ul>
+  <!-- Fila para los formularios y el diagrama de asientos -->
+  <div class="row">
+    <!-- Columna para los formularios -->
+    <!-- Formulario Datos del Cliente -->
+    <div class="col-md-8">
+      <div class="card mt-3">
+        <div class="card-header">
+          Datos del Cliente
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tipoDocumento">Tipo de Documento</label>
+                <select id="tipoDocumento" class="form-control">
+                  <option selected>Opciones...</option>
+                  <!-- Otras opciones -->
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="numeroDocumento">N° Documento</label>
+                <input type="text" class="form-control" id="numeroDocumento" placeholder="87536217">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombreCliente">Nombre</label>
+                <input type="text" class="form-control" id="nombreCliente" placeholder="Andrea Rosa">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidoCliente">Apellido</label>
+                <input type="text" class="form-control" id="apellidoCliente" placeholder="Casas López">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Formulario Pasaje -->
+      <div class="card mt-3">
+        <div class="card-header">
+          Pasaje
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="origen">Origen</label>
+                <select id="origen" class="form-control">
+                  <option selected>Ciudadok</option>
+                  <!-- Otras opciones -->
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="destino">Destino</label>
+                <select id="destino" class="form-control">
+                  <option selected>Jekardah</option>
+                  <!-- Otras opciones -->
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="fechaViaje">Fecha de Viaje</label>
+                <input type="date" class="form-control" id="fechaViaje" value="2022-02-13">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Formulario Precio del Pasaje -->
+      <div class="card mt-3">
+        <div class="card-header">
+          Precio del Pasaje
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tipoPago">Tipo de Pago</label>
+                <select id="tipoPago" class="form-control">
+                  <option selected>Contado</option>
+                  <!-- Otras opciones -->
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="precio">Precio</label>
+                <input type="text" class="form-control" id="precio" placeholder="50">
+              </div>
+            </div>
+          </form>
+          <button class="btn btn-primary">Pagar</button>
+          <button class="btn btn-outline-primary">Imprimir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna para el diagrama de asientos -->
+   
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Asientos:
+        </div>
+        <div class="card-body">
+          <div class="seating-chart" id="seatingChart">
+            <!-- Fila 1 -->
+      
+            <div class="seat invisible"></div>
+            <div class="seat invisible"></div>
+            <div class="seat reserved" data-seat-number="1"></div>
+            <div class="seat"></div>
+          
+            <!-- Fila 2 -->
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat reserved" data-seat-number="2"></div>
+            <div class="seat invisible"></div>
+          
+            <!-- Fila 3 -->
+            <div class="seat"></div>
+            <div class="seat sold" data-seat-number="3"></div>
+            <div class="seat invisible"></div>
+            <div class="seat"></div>
+          
+            <!-- Fila 4 -->
+            <div class="seat reserved" data-seat-number="4"></div>
+            <div class="seat"></div>
+            <div class="seat invisible"></div>
+            <div class="seat sold" data-seat-number="5"></div>
+          
+            <!-- Fila 5 -->
+            <div class="seat"></div>
+            <div class="seat reserved" data-seat-number="6"></div>
+            <div class="seat invisible"></div>
+            <div class="seat"></div>
+
+            <!-- Fila 6 -->
+            <div class="seat"></div>
+            <div class="seat reserved" data-seat-number="6"></div>
+            <div class="seat invisible"></div>
+            <div class="seat"></div>
+
+            <!-- Fila 7 -->
+            <div class="seat"></div>
+            <div class="seat reserved" data-seat-number="6"></div>
+            <div class="seat invisible"></div>
+            <div class="seat"></div>
+          </div>
+          
+          <div class="legend">
+            <div>
+              <div class="seat reserved"></div>
+              <span class="text">reservado</span>
+            </div>
+            <div>
+              <div class="seat sold"></div>
+              <span class="text">vendido</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Espera a que el documento esté completamente cargado
+  document.addEventListener('DOMContentLoaded', function() {
+    var navTab = document.getElementById('nav-tab');
+    var navLinks = navTab.getElementsByClassName('nav-link');
+
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].addEventListener('click', function() {
+        var current = navTab.getElementsByClassName('active');
+        
+        // Si existe un botón activo, remover la clase 'active'
+        if (current.length > 0) { 
+          current[0].className = current[0].className.replace(' active', '');
+        }
+
+        // Añadir la clase 'active' al botón que ha sido clickeado
+        this.className += ' active';
+      });
+    }
+  });
+</script>
+
+<!-- Scripts de Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

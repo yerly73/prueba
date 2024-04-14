@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Registro del personal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Agregar la referencia al archivo CSS de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container"> 
+        <h1 class="form-title">Registro de Vehículos</h1>
+        <form action="#" id="vehicleRegistrationForm">
+            <div class="row">
+                <!-- Aquí van los campos existentes del formulario -->
+
+                <!-- Campos adicionales para la tarjeta de circulación -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="carBrand">Marca</label>
+                        <input type="text" id="carBrand" name="carBrand" placeholder="Ingrese la marca del vehículo" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="plateNumber">Número de Placa</label>
+                        <input type="text" id="plateNumber" name="plateNumber" placeholder="Ingrese el número de placa" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="carModel">Modelo</label>
+                        <input type="text" id="carModel" name="carModel" placeholder="Ingrese el modelo del vehículo" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="carColor">Color</label>
+                        <input type="text" id="carColor" name="carColor" placeholder="Ingrese el color del vehículo" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="serialNumber">N° de Serie</label>
+                        <input type="text" id="serialNumber" name="serialNumber" placeholder="Ingrese el número de serie del vehículo" class="form-control">
+                    </div>
+                </div>
+                
+                <!-- Botón de registro -->
+                <div class="col-md-4">
+                    <div class="form-submit-btn">
+                        <input type="button" value="Registrar Vehículo" onclick="agregarRegistro()" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container mt-5">
+        <h2>Registros</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- Agrega aquí las nuevas columnas para los datos del vehículo -->
+                        <th>#</th>
+                        <th>Marca</th>
+                        <th>Número de Placa</th>
+                        <th>Modelo</th>
+                        <th>Color</th>
+                        <th>N° de Serie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ejemplo #</td>
+                        <!-- Agrega aquí los datos de ejemplo para los vehículos -->
+                        <td>Ejemplo Marca</td>
+                        <td>Ejemplo Número de Placa</td>
+                        <td>Ejemplo Modelo</td>
+                        <td>Ejemplo Color</td>
+                        <td>Ejemplo N° de Serie</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+    <!-- Aquí va el resto de tu HTML, incluyendo la tabla de registros -->
+
+    <!-- Agregar los scripts de Bootstrap y otros -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</body>
+</html>

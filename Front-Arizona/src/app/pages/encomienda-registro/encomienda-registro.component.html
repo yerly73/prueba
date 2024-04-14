@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar encomienda</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Registrar encomienda</h1>
+        <form>
+            <div class="row">
+                <!-- Datos del Emissor -->
+                <div class="col-md-6 form-section">
+                    <h2 class="section-title">Datos Emisor</h2>
+                    <div class="form-group">
+                        <label for="emisorDocumento">TIPO DOCUMENTO:</label>
+                        <select id="emisorDocumento" class="form-control">
+                            <option>DNI</option>
+                            <option>Pasaporte</option>
+                            <!-- Más opciones -->
+                        </select>
+                    </div>
+                    <!-- Más campos para el formulario del emisor -->
+                </div>
+
+                <!-- Datos del Receptor -->
+                <div class="col-md-6 form-section">
+                    <h2 class="section-title">Datos Receptor</h2>
+                    <div class="form-group">
+                        <label for="receptorDocumento">TIPO DOCUMENTO:</label>
+                        <select id="receptorDocumento" class="form-control">
+                            <option>DNI</option>
+                            <option>Pasaporte</option>
+                            <!-- Más opciones -->
+                        </select>
+                    </div>
+                    <!-- Más campos para el formulario del receptor -->
+                </div>
+            </div>
+
+            <!-- Datos del Envío -->
+            <div class="form-section">
+                <h2 class="section-title">Datos del Envío</h2>
+                <!-- Campos relacionados con el envío -->
+            </div>
+
+            <!-- Detalles del Producto -->
+            <div class="form-section">
+                <h2 class="section-title">Detalle del Producto</h2>
+                <!-- Tabla o campos para agregar los productos -->
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">GUARDAR</button>
+                <button type="button" class="btn btn-secondary">NUEVO</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

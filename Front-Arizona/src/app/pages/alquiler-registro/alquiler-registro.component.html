@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Registro de Alquiler de Bus y Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container"> 
+        <h1 class="form-title">Registro de Alquiler de Bus</h1>
+        <form action="#" id="busRentalForm">
+            <div class="row">
+                <!-- Fecha requerida -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="requiredDate">Fecha Requerida</label>
+                        <input type="date" id="requiredDate" name="requiredDate" class="form-control">
+                    </div>
+                </div>
+                <!-- Duración -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="duration">Duración</label>
+                        <input type="text" id="duration" name="duration" placeholder="Duración del alquiler" class="form-control">
+                    </div>
+                </div>
+                
+                <!-- Ruta Planificada -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="plannedRoute">Ruta Planificada</label>
+                        <select id="plannedRoute" name="plannedRoute" class="form-control">
+                            <option value="">Seleccione una ruta</option>
+                            <!-- Opciones de rutas aquí -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <h1 class="form-title mt-5">Registro del Cliente</h1>
+        <form action="#" id="clientRegistrationForm">
+            <div class="row">
+                <!-- Nombre -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="clientName">Nombre</label>
+                        <input type="text" id="clientName" name="clientName" class="form-control">
+                    </div>
+                </div>
+                <!-- Apellido -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="clientLastName">Apellido</label>
+                        <input type="text" id="clientLastName" name="clientLastName" class="form-control">
+                    </div>
+                </div>
+                <!-- DNI -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="clientDni">DNI</label>
+                        <input type="text" id="clientDni" name="clientDni" class="form-control">
+                    </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="clientPhone">Teléfono</label>
+                        <input type="text" id="clientPhone" name="clientPhone" class="form-control">
+                    </div>
+                </div>
+                <!-- Total a Pagar -->
+                
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container mt-4"> 
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Fecha de Alquiler</th>
+                        <th>Duración</th>
+                        <th>Propósito del Viaje</th>
+                        <th>Ruta Planificada</th>
+                        <th>Nombre del Cliente</th>
+                        <th>Apellido del Cliente</th>
+                        <th>DNI del Cliente </th>   
+                        <th>Teléfono del Cliente</th>
+                        <th>Total a Pagar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí irían las filas con los datos de los registros combinados de alquiler y clientes -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
